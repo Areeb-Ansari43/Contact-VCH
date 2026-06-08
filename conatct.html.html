@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Virtual Car Hire - London PCO Specialists | Contact Page</title>
+    <link rel="icon" type="image/png" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663733919518/EBejjswaOWQaPSAV.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0d1117; 
+            color: white; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .text-primary { color: #ff6b00; }
+        .bg-primary { background-color: #ff6b00; }
+        .hover-pop { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .hover-pop:hover { 
+            transform: scale(1.05) translateY(-5px); 
+            border-color: #ff6b00; 
+            box-shadow: 0 10px 30px -10px rgba(255, 107, 0, 0.3); 
+        }
+        .hero-gradient { 
+            background: linear-gradient(rgba(13, 17, 23, 0.94), rgba(13, 17, 23, 0.85)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&auto=format&fit=crop'); 
+            background-size: cover; 
+            background-position: center 30%;
+        }
+        .btn-primary { 
+            background-color: #ff6b00; 
+            transition: all 0.3s ease; 
+            color: white; 
+            box-shadow: 0 4px 14px 0 rgba(255, 107, 0, 0.3);
+        }
+        .btn-primary:hover { 
+            background-color: #e66000; 
+            transform: scale(1.05); 
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.5); 
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .car-card { 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            transition: all 0.3s ease;
+        }
+        
+        /* FLEET TOGGLE */
+        #fleet-wrapper {
+            display: block;
+            width: 100%;
+        }
+        #fleet-content {
+            transition: all 0.5s ease-in-out;
+            overflow: hidden;
+            display: block;
+        }
+        .fleet-hidden {
+            max-height: 0 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            display: block !important;
+        }
+        .fleet-visible {
+            max-height: 20000px !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        /* INFINITE MARQUEE */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: fit-content;
+            animation: marquee 35s linear infinite;
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff6b00; }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background-position: center 20%;
+            }
+            .car-card img {
+                max-height: 140px;
+                object-fit: contain;
+            }
+            .hover-pop:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        @media (hover: hover) {
+            .hover-pop:hover {
+                transform: scale(1.05) translateY(-5px);
+            }
+        }
+        
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        .text-balance {
+            text-wrap: balance;
+        }
+        
+        .info-banner {
+            background: linear-gradient(135deg, rgba(255,107,0,0.12), rgba(255,107,0,0.05));
+            border-left: 4px solid #ff6b00;
+        }
+        
+        html {
+            scroll-padding-top: 80px;
+        }
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 70px;
+            }
+        }
+        
+        .social-card {
+            transition: all 0.3s ease;
+        }
+        .social-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff6b00;
+            box-shadow: 0 15px 30px -12px rgba(255, 107, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#0d1117]/90 backdrop-blur-md border-b border-white/10 px-4 sm:px-6 py-3 md:py-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-3">
+            <div class="flex items-center space-x-2 hover-pop cursor-pointer flex-shrink-0">
+                <div class="w-8 h-8 md:w-9 md:h-9 bg-[#ff6b00] rounded-full flex items-center justify-center font-bold text-white text-sm md:text-base">V</div>
+                <div>
+                    <h1 class="font-bold text-xs md:text-sm leading-tight">Virtual Car Hire</h1>
+                    <p class="text-[8px] md:text-[10px] text-[#ff6b00] tracking-widest uppercase hidden xs:block">London PCO Specialists</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#fleet-section" class="text-white/70 hover:text-[#ff6b00] transition">Fleet</a>
+                <a href="#social-section" class="text-white/70 hover:text-[#ff6b00] transition">Social</a>
+                <a href="#reviews-section" class="text-white/70 hover:text-[#ff6b00] transition">Reviews</a>
+                <a href="tel:+442072946756" class="text-white/70 hover:text-[#ff6b00] transition flex items-center text-sm">
+                    <i class="fas fa-phone-alt mr-2 text-[#ff6b00] text-xs"></i> +44 207 294 6756
+                </a>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=447508496940&text&type=phone_number&app_absent=0" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn-primary px-4 sm:px-6 py-2 rounded-full font-bold text-xs sm:text-sm shadow-lg whitespace-nowrap hover:shadow-xl transition-all">
+                <i class="fab fa-whatsapp mr-1 sm:mr-2"></i> Book Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center hero-gradient px-5 pt-20 pb-16">
+        <div class="max-w-4xl text-center" data-aos="fade-up">
+            <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-white/20 mb-6 hover-pop">
+                <span class="w-2 h-2 bg-[#ff6b00] rounded-full animate-pulse"></span>
+                <p class="text-[11px] sm:text-xs font-medium whitespace-nowrap">London's #1 PCO Car Hire · 4.7★ Google Rating</p>
+            </div>
+            <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-5 leading-tight text-balance">Drive <span class="text-white">Premium.</span><br><span class="italic text-[#ff6b00]">Earn More.</span></h2>
+            <p class="text-white/70 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto px-2">London's most trusted PCO car hire. Hybrid & electric fleet, insurance included, same-day start.</p>
+            
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+                <a href="#fleet-section" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-car mr-2 text-[#ff6b00]"></i> Our Fleet</a>
+                <a href="#social-section" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-share-alt mr-2 text-[#ff6b00]"></i> Social</a>
+                <a href="#reviews-section" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-star mr-2 text-[#ff6b00]"></i> Reviews</a>
+                <a href="https://virtualcarhire.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-globe mr-2 text-[#ff6b00]"></i> Main Website</a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <a href="https://api.whatsapp.com/send/?phone=447508496940&text&type=phone_number&app_absent=0" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="btn-primary px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-lg w-full sm:w-auto shadow-xl text-center flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-base sm:text-xl"></i> Get Your Car Today →
+                </a>
+                <button onclick="downloadVCard()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-lg w-full sm:w-auto transition hover-pop flex items-center justify-center gap-2">
+                    <i class="fas fa-address-card text-xs sm:text-sm"></i> Save Contact
+                </button>
+                <a href="https://virtualcarhire.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-[#ff6b00] backdrop-blur-md text-white border border-white/20 px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-lg w-full sm:w-auto transition hover-pop flex items-center justify-center gap-2">
+                    <i class="fas fa-external-link-alt text-xs sm:text-sm"></i> Main Website
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO BANNER -->
+    <div class="info-banner bg-[#ff6b00]/10 border-y border-[#ff6b00]/20 py-3 px-5 text-center backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-3 flex-wrap">
+            <i class="fas fa-info-circle text-[#ff6b00] text-sm sm:text-base animate-pulse"></i>
+            <p class="text-white/80 text-xs sm:text-sm font-medium">⚠️ This is our <span class="text-[#ff6b00] font-bold">Contact Page</span>. Scroll down to explore our fleet & socials, or 
+                <a href="https://virtualcarhire.pages.dev/" target="_blank" class="text-[#ff6b00] underline font-bold hover:text-white transition inline-flex items-center gap-1">visit our main website <i class="fas fa-arrow-right text-xs"></i></a>
+            </p>
+        </div>
+    </div>
+
+    <!-- INFINITE MARQUEE -->
+    <div class="bg-[#ff6b00]/10 border-y border-[#ff6b00]/20 py-3 overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span class="text-white/80 font-medium mx-6">★ 4.7★ Google Rating</span>
+                <span class="text-white/80 font-medium mx-6">★ 100+ Premium PCO Vehicles</span>
+                <span class="text-white/80 font-medium mx-6">★ Insurance & Servicing Included</span>
+                <span class="text-white/80 font-medium mx-6">★ Same-Day Onboarding</span>
+                <span class="text-white/80 font-medium mx-6">★ Hybrid & Electric Fleet</span>
+                <span class="text-white/80 font-medium mx-6">★ 24/7 Support</span>
+                <span class="text-white/80 font-medium mx-6">★ ULEZ Compliant</span>
+                <span class="text-white/80 font-medium mx-6">★ 4.7★ Google Rating</span>
+                <span class="text-white/80 font-medium mx-6">★ 100+ Premium PCO Vehicles</span>
+                <span class="text-white/80 font-medium mx-6">★ Insurance & Servicing Included</span>
+                <span class="text-white/80 font-medium mx-6">★ Same-Day Onboarding</span>
+                <span class="text-white/80 font-medium mx-6">★ Hybrid & Electric Fleet</span>
+                <span class="text-white/80 font-medium mx-6">★ 24/7 Support</span>
+                <span class="text-white/80 font-medium mx-6">★ ULEZ Compliant</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fleet Section -->
+    <section id="fleet-section" class="py-16 sm:py-24 px-5 max-w-7xl mx-auto">
+        <div class="text-center mb-8 sm:mb-12" data-aos="fade-down">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-balance">Our <span class="italic text-[#ff6b00]">Fleet</span></h2>
+            <p class="text-white/60 text-base sm:text-lg max-w-xl mx-auto mb-6 px-3">Full premium inventory including Mercedes, Toyota, Tesla, and more.</p>
+            <button onclick="toggleFleet()" class="inline-flex items-center space-x-2 text-lg sm:text-xl font-bold hover:text-[#ff6b00] transition hover-pop p-3 rounded-xl bg-white/5 backdrop-blur-sm cursor-pointer">
+                <span id="fleet-toggle-text" class="text-sm sm:text-base">View our full fleet</span>
+                <i id="fleet-arrow" class="fas fa-chevron-down text-[#ff6b00] transition-transform duration-300 text-xs sm:text-sm"></i>
+            </button>
+        </div>
+        
+        <div id="fleet-wrapper">
+            <div id="fleet-content" class="fleet-hidden">
+                <div id="dynamic-cars-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 mt-8 sm:mt-12"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social-section" class="py-16 sm:py-24 px-5 bg-[#161b22]/50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance" data-aos="fade-up">Join Our <span class="italic text-[#ff6b00]">Community</span></h2>
+            <p class="text-white/60 text-base max-w-2xl mx-auto mb-12">Follow us on social media for updates, driver stories, and exclusive offers</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://www.instagram.com/virtual.car.hire/" target="_blank" rel="noopener noreferrer" class="social-card bg-[#161b22] rounded-2xl border border-white/10 p-6 text-center transition-all hover:border-[#ff6b00]" data-aos="flip-left">
+                    <div class="w-16 h-16 bg-gradient-to-tr from-purple-600 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><i class="fab fa-instagram text-3xl text-white"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Instagram</h3>
+                    <p class="text-white/50 text-sm">Daily updates, fleet showcase & driver spotlights. Follow us for exclusive content!</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium">@virtual.car.hire →</div>
+                </a>
+                <a href="https://www.tiktok.com/@virtual.car.hire" target="_blank" rel="noopener noreferrer" class="social-card bg-[#161b22] rounded-2xl border border-white/10 p-6 text-center transition-all hover:border-[#ff6b00]" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg border border-white/20"><i class="fab fa-tiktok text-3xl text-white"></i></div>
+                    <h3 class="text-xl font-bold mb-2">TikTok</h3>
+                    <p class="text-white/50 text-sm">Behind the scenes, PCO tips & car reviews. Join 10K+ followers!</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium">@virtual.car.hire →</div>
+                </a>
+                <a href="https://www.facebook.com/people/Virtual-Car-Hire/100057211609176/" target="_blank" rel="noopener noreferrer" class="social-card bg-[#161b22] rounded-2xl border border-white/10 p-6 text-center transition-all hover:border-[#ff6b00]" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-[#1877f2] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><i class="fab fa-facebook text-3xl text-white"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Facebook</h3>
+                    <p class="text-white/50 text-sm">Community group, driver reviews & weekly special offers. Like our page!</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium">Virtual Car Hire →</div>
+                </a>
+                <a href="https://api.whatsapp.com/send/?phone=447508496940&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="social-card bg-[#161b22] rounded-2xl border border-white/10 p-6 text-center transition-all hover:border-[#ff6b00]" data-aos="flip-left" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><i class="fab fa-whatsapp text-3xl text-white"></i></div>
+                    <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
+                    <p class="text-white/50 text-sm">Instant chat support. Get a quote or ask questions — we reply within minutes!</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium">+44 7508 496940 →</div>
+                </a>
+                <a href="https://virtualcarhire.pages.dev/" target="_blank" rel="noopener noreferrer" class="social-card bg-[#161b22] rounded-2xl border border-white/10 p-6 text-center transition-all hover:border-[#ff6b00] sm:col-span-2 lg:col-span-1" data-aos="flip-left" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-[#ff6b00] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><i class="fas fa-globe text-3xl text-white"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Main Website</h3>
+                    <p class="text-white/50 text-sm">Full fleet catalog, pricing, booking system & driver resources.</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium">virtualcarhire.pages.dev →</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews-section" class="py-16 sm:py-24 px-5 max-w-7xl mx-auto">
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance" data-aos="fade-up">Thank You for Choosing <span class="italic text-[#ff6b00]">Virtual Car Hire</span></h2>
+            <p class="text-white/70 text-lg max-w-2xl mx-auto mb-8">Your satisfaction is our priority. Please leave us a good review and help other drivers find London's most trusted PCO service.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8">
+                <a href="https://uk.trustpilot.com/review/virtualcarhire.co.uk" target="_blank" rel="noopener noreferrer" class="group p-8 bg-[#161b22] rounded-3xl border border-white/10 hover:border-[#ff6b00] transition-all w-full sm:w-80 text-center hover:scale-105 duration-300" data-aos="zoom-in-right">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 bg-[#00b67a] rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="text-xl font-bold block mb-2">Rate us on Trustpilot</span>
+                    <div class="flex justify-center gap-1 text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-white/60 text-sm">"Excellent service, professional team"</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium group-hover:underline">Leave a review →</div>
+                </a>
+                <a href="https://www.google.com/search?q=virtual+car+hire+reviews" target="_blank" rel="noopener noreferrer" class="group p-8 bg-[#161b22] rounded-3xl border border-white/10 hover:border-[#ff6b00] transition-all w-full sm:w-80 text-center hover:scale-105 duration-300" data-aos="zoom-in-left">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 bg-[#4285F4] rounded-2xl flex items-center justify-center shadow-lg">
+                            <i class="fab fa-google text-4xl text-white"></i>
+                        </div>
+                    </div>
+                    <span class="text-xl font-bold block mb-2">Rate us on Google</span>
+                    <div class="flex justify-center gap-1 text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-white/60 text-sm">4.7 ★ (240+ reviews) — "Best PCO hire in London"</p>
+                    <div class="mt-4 text-[#ff6b00] text-sm font-medium group-hover:underline">Write a Google review →</div>
+                </a>
+            </div>
+            <div class="mt-12 p-6 bg-[#ff6b00]/10 rounded-2xl border border-[#ff6b00]/20 max-w-2xl mx-auto">
+                <i class="fas fa-heart text-[#ff6b00] text-2xl mb-2 block"></i>
+                <p class="text-white/80 text-sm">Your feedback helps us grow and serve London's PCO community better. Thank you for driving with Virtual Car Hire!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0d1117] border-t border-white/10 py-12 sm:py-16 px-5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+            <div data-aos="fade-right" class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start space-x-2 mb-6">
+                    <div class="w-9 h-9 bg-[#ff6b00] rounded-full flex items-center justify-center font-bold text-white">V</div>
+                    <h1 class="font-bold text-lg">Virtual Car Hire</h1>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed">London's most trusted PCO car hire. Hybrid & electric fleet, insurance included, same-day start.</p>
+            </div>
+            <div data-aos="fade-up" class="text-center md:text-left">
+                <h4 class="font-bold text-lg mb-6 text-[#ff6b00]">Contact</h4>
+                <div class="space-y-4 flex flex-col items-center md:items-start">
+                    <a href="tel:+442072946756" class="flex items-center text-white/70 hover:text-[#ff6b00] transition"><i class="fas fa-phone-alt mr-3 text-[#ff6b00]"></i> +44 207 294 6756</a>
+                    <a href="https://virtualcarhire.pages.dev" target="_blank" class="flex items-center text-white/70 hover:text-[#ff6b00] transition"><i class="fas fa-globe mr-3 text-[#ff6b00]"></i> virtualcarhire.pages.dev</a>
+                </div>
+            </div>
+            <div data-aos="fade-left" class="text-center md:text-left">
+                <h4 class="font-bold text-lg mb-6 text-[#ff6b00]">Follow Us</h4>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="https://www.instagram.com/virtual.car.hire/" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#ff6b00] transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@virtual.car.hire" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#ff6b00] transition"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=447508496940" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#ff6b00] transition"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/people/Virtual-Car-Hire/100057211609176/" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#ff6b00] transition"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-white/30 text-xs mt-12 pt-6 border-t border-white/5">
+            © 2025 Virtual Car Hire — London PCO Specialists | Contact Page
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ once: false, mirror: true, duration: 600, offset: 80 });
+        
+        function toggleFleet() {
+            const fleetContent = document.getElementById('fleet-content');
+            const toggleText = document.getElementById('fleet-toggle-text');
+            const toggleArrow = document.getElementById('fleet-arrow');
+            
+            if (!fleetContent) return;
+            
+            if (fleetContent.classList.contains('fleet-hidden')) {
+                fleetContent.classList.remove('fleet-hidden');
+                fleetContent.classList.add('fleet-visible');
+                if (toggleText) toggleText.innerText = 'Hide Fleet';
+                if (toggleArrow) toggleArrow.classList.add('rotate-180');
+            } else {
+                fleetContent.classList.remove('fleet-visible');
+                fleetContent.classList.add('fleet-hidden');
+                if (toggleText) toggleText.innerText = 'View our full fleet';
+                if (toggleArrow) toggleArrow.classList.remove('rotate-180');
+            }
+        }
+        
+        function downloadVCard() {
+            const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Virtual Car Hire
+ORG:Virtual Car Hire
+TEL;TYPE=WORK,VOICE:+442072946756
+TEL;TYPE=CELL,VOICE:+447508496940
+URL:https://virtualcarhire.pages.dev
+NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet
+END:VCARD`;
+            const blob = new Blob([vcardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Virtual_Car_Hire.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // UPDATED: Detailed WhatsApp message as requested
+        function getWhatsAppLink(carName) {
+            const message = `Hello there Virtual Car Hire,
+
+I would like to rent out this car: ${carName}.
+
+Please call me at [Insert Your Phone Number] or reply to this message with more information about the availability, pricing, and rental process for this vehicle.
+
+I am really looking forward to renting this car out!
+
+Best regards,
+[Your Name] [Your Email Address]`;
+            return `https://api.whatsapp.com/send/?phone=447508496940&text=${encodeURIComponent(message)}&app_absent=0`;
+        }
+        
+        const cars = [
+            {name: "Mercedes E300", price: "£340/wk", type: "Plug-in Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/984a956a3_generated_47098be1.png", specs: "5 seats · Auto · 2021–24"},
+            {name: "Mercedes Vito", price: "£380/wk", type: "Diesel", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/cd2fd818a_generated_07425144.png", specs: "8 seats · Auto · 2021–24"},
+            {name: "Mercedes V-Class", price: "£450/wk", type: "Diesel", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/168ccefcb_generated_9f02aca7.png", specs: "7 seats · Auto · 2022–24"},
+            {name: "Mercedes EQS", price: "£500/wk", type: "Electric", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/9875d6655_generated_5bf9051e.png", specs: "5 seats · Auto · 2022–24"},
+            {name: "Mercedes E220", price: "£310/wk", type: "Diesel", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/82beb70bc_generated_fa70fb99.png", specs: "5 seats · Auto · 2020–24"},
+            {name: "Mercedes EQE", price: "£440/wk", type: "Electric", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/a4c99e01c_generated_b79cd217.png", specs: "5 seats · Auto · 2023–24"},
+            {name: "Toyota Corolla Estate", price: "£220/wk", type: "Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/07c38dfd7_generated_59d7c3d3.png", specs: "5 seats · Auto · 2021–24"},
+            {name: "Toyota Auris Estate", price: "£210/wk", type: "Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/32379ce2d_generated_5b401ce2.png", specs: "5 seats · Auto · 2019–22"},
+            {name: "Toyota Prius", price: "£200/wk", type: "Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/dde45622b_generated_1d4f5fee.png", specs: "5 seats · Auto · 2020–24"},
+            {name: "Tesla Model 3", price: "£260/wk", type: "Electric", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/f8bc04bf7_generated_7408a636.png", specs: "5 seats · Auto · 2021–24"},
+            {name: "Jaguar I-Pace", price: "£330/wk", type: "Electric", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/ec743fd88_generated_4bc92119.png", specs: "5 seats · Auto · 2020–24"},
+            {name: "Hyundai IONIQ", price: "£220/wk", type: "Plug-in Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/4e6bacf53_generated_70b0fee5.png", specs: "5 seats · Auto · 2020–23"},
+            {name: "MG5 EV", price: "£200/wk", type: "Electric", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/0d388cb33_generated_image.png", specs: "5 seats · Auto · 2022–24"},
+            {name: "Ford Tourneo Custom", price: "£410/wk", type: "Plug-in Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/e883f54fd_generated_image.png", specs: "8 seats · Auto · 2021–24"},
+            {name: "MG S9 PHEV SUV", price: "£350/wk", type: "Plug-in Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/d196ca34e_generated_image.png", specs: "5 seats · Auto · 2024–25"},
+            {name: "Volkswagen Multivan PHEV", price: "£350/wk", type: "Plug-in Hybrid", img: "https://media.base44.com/images/public/6a1f346b7b17a237b494bdf9/3fa1a452d_generated_image.png", specs: "7 seats · Auto · 2024–25"}
+        ];
+        
+        function renderCars() {
+            const grid = document.getElementById('dynamic-cars-grid');
+            if (!grid) return;
+            const carHTML = cars.map((car, i) => `
+                <div class="car-card rounded-2xl overflow-hidden p-5 sm:p-6 hover-pop transition-all" data-aos="zoom-in" data-aos-delay="${Math.min(i * 30, 300)}">
+                    <div class="relative mb-5">
+                        <span class="absolute top-0 right-0 bg-[#ff6b00] text-white text-[9px] sm:text-[10px] font-bold px-2 py-1 rounded-full">${car.type}</span>
+                        <img src="${car.img}" alt="${car.name}" class="w-full h-36 sm:h-44 object-contain" loading="lazy">
+                    </div>
+                    <div class="flex justify-between items-start mb-3 flex-wrap gap-2">
+                        <div><h3 class="text-base sm:text-xl font-bold">${car.name}</h3></div>
+                        <div class="text-right"><p class="text-[#ff6b00] font-bold text-base sm:text-lg">${car.price}</p></div>
+                    </div>
+                    <p class="text-xs text-white/40 mb-5">${car.specs}</p>
+                    <a href="${getWhatsAppLink(car.name)}" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 sm:py-3 rounded-xl border border-white/10 hover:bg-[#ff6b00] transition-all font-semibold text-sm">Enquire Now →</a>
+                </div>
+            `).join('');
+            grid.innerHTML = carHTML;
+            setTimeout(() => AOS.refresh(), 100);
+        }
+        
+        renderCars();
+        
+        function setHeroHeight() {
+            const hero = document.querySelector('.hero-gradient');
+            if (hero) hero.style.minHeight = `${window.innerHeight}px`;
+        }
+        setHeroHeight();
+        window.addEventListener('resize', setHeroHeight);
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
