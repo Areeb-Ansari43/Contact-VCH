@@ -35,9 +35,10 @@
             box-shadow: 0 10px 30px -10px rgba(255, 107, 0, 0.3); 
         }
         .hero-gradient { 
-            background: linear-gradient(rgba(13, 17, 23, 0.94), rgba(13, 17, 23, 0.85)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&auto=format&fit=crop'); 
+            background: linear-gradient(rgba(13, 17, 23, 0.88), rgba(13, 17, 23, 0.92)), url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663738477168/YZOjaFkKMGMECIxc.png'); 
             background-size: cover; 
-            background-position: center 30%;
+            background-position: center 35%;
+            background-repeat: no-repeat;
         }
         .btn-primary { 
             background-color: #ff6b00; 
@@ -110,7 +111,7 @@
         
         @media (max-width: 768px) {
             .hero-gradient {
-                background-position: center 20%;
+                background-position: center 30%;
             }
             .car-card img {
                 max-height: 140px;
@@ -187,7 +188,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with custom hero image -->
     <section class="relative min-h-screen flex items-center justify-center hero-gradient px-5 pt-20 pb-16">
         <div class="max-w-4xl text-center" data-aos="fade-up">
             <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-white/20 mb-6 hover-pop">
@@ -408,28 +409,30 @@
             }
         }
         
+        // Updated vCard with full name "Virtual Car Hire - Rizwan Sajid"
         function downloadVCard() {
             const vcardData = `BEGIN:VCARD
 VERSION:3.0
-FN:Virtual Car Hire
+FN:Virtual Car Hire - Rizwan Sajid
 ORG:Virtual Car Hire
+TITLE:CEO & Founder
 TEL;TYPE=WORK,VOICE:+442072946756
 TEL;TYPE=CELL,VOICE:+447508496940
 URL:https://virtualcarhire.pages.dev
-NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet
+NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet. Contact Rizwan Sajid for any queries.
 END:VCARD`;
             const blob = new Blob([vcardData], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Virtual_Car_Hire.vcf';
+            a.download = 'Virtual_Car_Hire_Rizwan_Sajid.vcf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
         
-        // UPDATED: Detailed WhatsApp message as requested
+        // Detailed WhatsApp message template
         function getWhatsAppLink(carName) {
             const message = `Hello there Virtual Car Hire,
 
