@@ -35,9 +35,18 @@
             box-shadow: 0 10px 30px -10px rgba(255, 107, 0, 0.3); 
         }
         .hero-gradient { 
-            background: linear-gradient(rgba(13, 17, 23, 0.94), rgba(13, 17, 23, 0.85)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&auto=format&fit=crop'); 
+            background: linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.7)), url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663738477168/HMdHTEEJHKmwPEjU.png'); 
             background-size: cover; 
-            background-position: center 30%;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background: linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.8)), url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663738477168/rWMPHbPsBJyFAoUX.png');
+                background-size: cover;
+                background-position: center;
+                background-attachment: scroll;
+            }
         }
         .btn-primary { 
             background-color: #ff6b00; 
@@ -109,9 +118,6 @@
         ::-webkit-scrollbar-thumb:hover { background: #ff6b00; }
         
         @media (max-width: 768px) {
-            .hero-gradient {
-                background-position: center 20%;
-            }
             .car-card img {
                 max-height: 140px;
                 object-fit: contain;
@@ -157,6 +163,34 @@
             border-color: #ff6b00;
             box-shadow: 0 15px 30px -12px rgba(255, 107, 0, 0.25);
         }
+
+        /* Profile Card Styling */
+        .profile-card {
+            background: linear-gradient(145deg, #1e2227, #161b22);
+            border: 1px solid rgba(255, 107, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .profile-image-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: -90px auto 20px;
+        }
+        @media (max-width: 640px) {
+            .profile-image-container {
+                width: 140px;
+                height: 140px;
+                margin: -70px auto 15px;
+            }
+        }
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #ff6b00;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -188,35 +222,33 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center hero-gradient px-5 pt-20 pb-16">
-        <div class="max-w-4xl text-center" data-aos="fade-up">
-            <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-white/20 mb-6 hover-pop">
-                <span class="w-2 h-2 bg-[#ff6b00] rounded-full animate-pulse"></span>
-                <p class="text-[11px] sm:text-xs font-medium whitespace-nowrap">Founder & CEO · London's #1 PCO Car Hire</p>
+    <section class="relative min-h-screen flex flex-col items-center justify-center hero-gradient px-5 pt-32 pb-16">
+        <div class="max-w-4xl w-full text-center" data-aos="fade-up">
+            <!-- Profile Card -->
+            <div class="profile-card mt-24 mb-12 p-8 sm:p-12 rounded-[2.5rem] relative max-w-2xl mx-auto backdrop-blur-sm">
+                <div class="profile-image-container">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663738477168/esRZIlgsFIYraHCd.png" alt="Rizwan Sajid" class="profile-image">
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-bold mb-3 leading-tight text-balance">Rizwan Sajid</h2>
+                <p class="text-[#ff6b00] font-bold text-lg sm:text-xl mb-6 tracking-wide uppercase italic">CEO & Founder</p>
+                <div class="w-16 h-1 bg-[#ff6b00] mx-auto mb-8 rounded-full"></div>
+                <p class="text-white/80 text-base sm:text-lg leading-relaxed px-2">Rizwan Sajid is the visionary leader behind Virtual Car Hire, dedicated to providing premium PCO vehicle solutions across London. With years of industry expertise, he has built a reputation for excellence, reliability, and supporting the driver community.</p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="downloadVCard()" class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-full font-bold text-sm transition hover-pop flex items-center justify-center gap-2">
+                        <i class="fas fa-address-card text-[#ff6b00]"></i> Save Contact
+                    </button>
+                    <a href="https://api.whatsapp.com/send/?phone=447508496940" target="_blank" class="btn-primary px-8 py-3 rounded-full font-bold text-sm transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> Chat with Rizwan
+                    </a>
+                </div>
             </div>
-            <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-5 leading-tight text-balance">Rizwan Sajid<br><span class="italic text-[#ff6b00]">CEO & Founder</span></h2>
-            <p class="text-white/70 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto px-2">Rizwan Sajid is the visionary leader behind Virtual Car Hire, dedicated to providing premium PCO vehicle solutions across London. With years of industry expertise, he has built a reputation for excellence, reliability, and supporting the driver community.</p>
-            
+
             <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <a href="#fleet-section" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-car mr-2 text-[#ff6b00]"></i> Our Fleet</a>
                 <a href="#social-section" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-share-alt mr-2 text-[#ff6b00]"></i> Social</a>
                 <a href="#reviews-section" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-star mr-2 text-[#ff6b00]"></i> Reviews</a>
                 <a href="https://virtualcarhire.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-white/5 hover:bg-[#ff6b00] border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all hover-pop flex items-center"><i class="fas fa-globe mr-2 text-[#ff6b00]"></i> Main Website</a>
-            </div>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <a href="https://api.whatsapp.com/send/?phone=447508496940&text&type=phone_number&app_absent=0" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="btn-primary px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-lg w-full sm:w-auto shadow-xl text-center flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-base sm:text-xl"></i> Get Your Car Today →
-                </a>
-                <button onclick="downloadVCard()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-lg w-full sm:w-auto transition hover-pop flex items-center justify-center gap-2">
-                    <i class="fas fa-address-card text-xs sm:text-sm"></i> Save Contact
-                </button>
-                <a href="https://virtualcarhire.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-[#ff6b00] backdrop-blur-md text-white border border-white/20 px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-lg w-full sm:w-auto transition hover-pop flex items-center justify-center gap-2">
-                    <i class="fas fa-external-link-alt text-xs sm:text-sm"></i> Main Website
-                </a>
             </div>
         </div>
     </section>
@@ -408,30 +440,29 @@
             }
         }
         
-        // UPDATED: vCard download with contact name "Virtual Car Hire - Rizwan"
         function downloadVCard() {
             const vcardData = `BEGIN:VCARD
 VERSION:3.0
-FN:Virtual Car Hire - Rizwan
+FN:Virtual Car Hire (Rizwan Sajid)
 ORG:Virtual Car Hire
 TITLE:CEO & Founder
 TEL;TYPE=WORK,VOICE:+442072946756
 TEL;TYPE=CELL,VOICE:+447508496940
 URL:https://virtualcarhire.pages.dev
-NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet. Contact Rizwan Sajid for any queries.
+NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet
 END:VCARD`;
             const blob = new Blob([vcardData], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Virtual_Car_Hire_Rizwan.vcf';
+            a.download = 'Virtual_Car_Hire_Rizwan_Sajid.vcf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
         
-        // WhatsApp message with custom template as requested
+        // UPDATED: Detailed WhatsApp message as requested
         function getWhatsAppLink(carName) {
             const message = `Hello there Virtual Car Hire,
 
