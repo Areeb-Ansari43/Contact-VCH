@@ -408,29 +408,30 @@
             }
         }
         
+        // UPDATED: vCard download with contact name "Virtual Car Hire - Rizwan"
         function downloadVCard() {
             const vcardData = `BEGIN:VCARD
 VERSION:3.0
-FN:Virtual Car Hire (Rizwan Sajid)
+FN:Virtual Car Hire - Rizwan
 ORG:Virtual Car Hire
 TITLE:CEO & Founder
 TEL;TYPE=WORK,VOICE:+442072946756
 TEL;TYPE=CELL,VOICE:+447508496940
 URL:https://virtualcarhire.pages.dev
-NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet
+NOTE:London PCO Car Hire Specialist - Premium Hybrid & Electric Fleet. Contact Rizwan Sajid for any queries.
 END:VCARD`;
             const blob = new Blob([vcardData], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Virtual_Car_Hire_Rizwan_Sajid.vcf';
+            a.download = 'Virtual_Car_Hire_Rizwan.vcf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
         
-        // UPDATED: Detailed WhatsApp message as requested
+        // WhatsApp message with custom template as requested
         function getWhatsAppLink(carName) {
             const message = `Hello there Virtual Car Hire,
 
